@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello Science 🔬</title>
+  <meta name="description" content="A friendly hello-world introduction to the wonders of science." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #131a30;
+      --card: #171f38;
+      --ink: #eef2ff;
+      --muted: #a5b0d0;
+      --brand: #5eead4;
+      --brand-2: #818cf8;
+      --accent: #f9a8d4;
+      --ring: rgba(129, 140, 248, 0.5);
+      --radius: 18px;
+      --shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.7);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 15% -10%, rgba(129, 140, 248, 0.25), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(94, 234, 212, 0.18), transparent 55%),
+        var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap { width: min(1080px, 92vw); margin: 0 auto; }
+
+    /* ---------- Header ---------- */
+    header {
+      padding: 22px 0;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11, 16, 32, 0.85), rgba(11, 16, 32, 0.4));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 10px; font-family: "Fraunces", serif; font-weight: 700; font-size: 1.25rem; }
+    .logo .dot {
+      width: 30px; height: 30px; border-radius: 9px;
+      background: conic-gradient(from 180deg, var(--brand), var(--brand-2), var(--accent), var(--brand));
+      display: grid; place-items: center; font-size: 1rem;
+      box-shadow: 0 0 20px rgba(129, 140, 248, 0.6);
+    }
+    .nav a.link { color: var(--muted); text-decoration: none; margin-left: 22px; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+    .nav a.link:hover, .nav a.link:focus-visible { color: var(--ink); }
+    .nav-links { display: flex; }
+    @media (max-width: 620px) { .nav-links { display: none; } }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 80px 0 60px; text-align: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px;
+      background: rgba(94, 234, 212, 0.1); border: 1px solid rgba(94, 234, 212, 0.3);
+      color: var(--brand); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em;
+    }
+    .hero h1 {
+      font-family: "Fraunces", serif; font-weight: 700;
+      font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.05;
+      margin: 22px 0 16px;
+      background: linear-gradient(120deg, #fff, var(--brand) 55%, var(--brand-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero p.lead { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); max-width: 620px; margin: 0 auto 32px; }
+    .cta { display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      border: 0; cursor: pointer; font: inherit; font-weight: 600;
+      padding: 13px 24px; border-radius: 12px; text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .btn:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+    .btn-primary { background: linear-gradient(120deg, var(--brand), var(--brand-2)); color: #0b1020; box-shadow: 0 12px 30px -10px rgba(94, 234, 212, 0.6); }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-ghost { background: rgba(255, 255, 255, 0.06); color: var(--ink); border: 1px solid rgba(255, 255, 255, 0.12); }
+    .btn-ghost:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.1); }
+
+    /* ---------- Section titles ---------- */
+    section { padding: 56px 0; }
+    .sec-head { text-align: center; margin-bottom: 40px; }
+    .sec-head h2 { font-family: "Fraunces", serif; font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 10px; }
+    .sec-head p { color: var(--muted); margin: 0; }
+
+    /* ---------- Cards ---------- */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--card); border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover { transform: translateY(-4px); border-color: rgba(129, 140, 248, 0.45); }
+    .card .ico { font-size: 2rem; }
+    .card h3 { margin: 14px 0 8px; font-size: 1.2rem; }
+    .card p { color: var(--muted); margin: 0; font-size: 0.96rem; }
+
+    /* ---------- Fact box (interactive) ---------- */
+    .fact {
+      background: linear-gradient(135deg, rgba(129, 140, 248, 0.15), rgba(94, 234, 212, 0.1));
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      border-radius: var(--radius); padding: 36px; text-align: center; box-shadow: var(--shadow);
+    }
+    .fact .label { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.78rem; color: var(--brand); font-weight: 700; }
+    #factText { font-family: "Fraunces", serif; font-size: clamp(1.3rem, 3vw, 1.9rem); margin: 16px auto 26px; max-width: 720px; min-height: 2.4em; }
+
+    /* ---------- Footer ---------- */
+    footer { padding: 40px 0 60px; text-align: center; color: var(--muted); border-top: 1px solid rgba(255, 255, 255, 0.06); margin-top: 30px; }
+
+    /* Entrance animation */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="logo"><span class="dot">🔬</span> Hello&nbsp;Science</div>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="link" href="#explore">Explore</a>
+        <a class="link" href="#fact">Fun Fact</a>
+        <a class="link" href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <span class="badge reveal">✦ A beginner-friendly intro</span>
+      <h1 class="reveal">Hello, World of Science!</h1>
+      <p class="lead reveal">
+        Science is simply curiosity with a method. Ask a question, make a guess,
+        run a test, and learn something true about the universe. Start exploring below.
+      </p>
+      <div class="cta reveal">
+        <a class="btn btn-primary" href="#explore">Start exploring</a>
+        <a class="btn btn-ghost" href="#fact">Show me a fun fact</a>
+      </div>
+    </section>
+
+    <section id="explore" class="wrap">
+      <div class="sec-head reveal">
+        <h2>The Branches of Science</h2>
+        <p>Three big ways humans make sense of everything around us.</p>
+      </div>
+      <div class="grid">
+        <article class="card reveal">
+          <div class="ico">⚛️</div>
+          <h3>Physics</h3>
+          <p>How matter, energy, motion, and forces shape everything from atoms to galaxies.</p>
+        </article>
+        <article class="card reveal">
+          <div class="ico">🧪</div>
+          <h3>Chemistry</h3>
+          <p>What things are made of, and how substances combine, react, and transform.</p>
+        </article>
+        <article class="card reveal">
+          <div class="ico">🧬</div>
+          <h3>Biology</h3>
+          <p>The study of living things — from tiny cells to whole ecosystems.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="fact" class="wrap">
+      <div class="fact reveal">
+        <div class="label">Fun Fact</div>
+        <p id="factText">Click the button to discover something amazing…</p>
+        <button class="btn btn-primary" id="factBtn">🎲 Surprise me</button>
+      </div>
+    </section>
+
+    <section id="about" class="wrap">
+      <div class="sec-head reveal">
+        <h2>The Scientific Method</h2>
+        <p>The simple loop behind every great discovery.</p>
+      </div>
+      <div class="grid">
+        <article class="card reveal"><div class="ico">❓</div><h3>1. Ask</h3><p>Notice something and ask a clear question about it.</p></article>
+        <article class="card reveal"><div class="ico">💡</div><h3>2. Hypothesize</h3><p>Make a testable guess at the answer.</p></article>
+        <article class="card reveal"><div class="ico">🔬</div><h3>3. Experiment</h3><p>Run a fair test and collect the data.</p></article>
+        <article class="card reveal"><div class="ico">📊</div><h3>4. Conclude</h3><p>See what the results say — then ask again.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Built with curiosity 🌌 — <strong>Hello Science</strong></p>
+    </div>
+  </footer>
+
+  <script>
+    // In-memory list of fun science facts (no backend needed)
+    const facts = [
+      "A teaspoonful of neutron star would weigh about 6 billion tons.",
+      "Honey never spoils — edible pots have been found in 3,000-year-old tombs.",
+      "Bananas are slightly radioactive, thanks to the potassium they contain.",
+      "There are more stars in the universe than grains of sand on all Earth's beaches.",
+      "Octopuses have three hearts and blue, copper-based blood.",
+      "Hot water can freeze faster than cold water — the Mpemba effect.",
+      "Your body has about 37 trillion cells, each doing a tiny job right now.",
+      "Light from the Sun takes roughly 8 minutes and 20 seconds to reach Earth.",
+      "A single bolt of lightning is about five times hotter than the Sun's surface.",
+      "DNA from a single human cell, uncoiled, would stretch about 2 meters long."
+    ];
+
+    const factText = document.getElementById("factText");
+    const factBtn = document.getElementById("factBtn");
+    let last = -1;
+
+    function showFact() {
+      let i = Math.floor(Math.random() * facts.length);
+      if (facts.length > 1) { while (i === last) i = Math.floor(Math.random() * facts.length); }
+      last = i;
+      factText.style.opacity = 0;
+      setTimeout(() => {
+        factText.textContent = facts[i];
+        factText.style.transition = "opacity 0.35s ease";
+        factText.style.opacity = 1;
+      }, 180);
+    }
+    factBtn.addEventListener("click", showFact);
+
+    // Reveal-on-scroll for a gentle entrance
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
